@@ -1,0 +1,9 @@
+c:\users\second\documents\visual studio 2013\Projects\PrimForms\PrimForms\bin\Debug\PrimForms.exe.config
+C:\Users\Second\Documents\Visual Studio 2013\Projects\PrimForms\PrimForms\bin\Debug\PrimForms.exe
+C:\Users\Second\Documents\Visual Studio 2013\Projects\PrimForms\PrimForms\bin\Debug\PrimForms.pdb
+C:\Users\Second\Documents\Visual Studio 2013\Projects\PrimForms\PrimForms\obj\Debug\PrimForms.csprojResolveAssemblyReference.cache
+C:\Users\Second\Documents\Visual Studio 2013\Projects\PrimForms\PrimForms\obj\Debug\PrimForms.Form1.resources
+C:\Users\Second\Documents\Visual Studio 2013\Projects\PrimForms\PrimForms\obj\Debug\PrimForms.Properties.Resources.resources
+C:\Users\Second\Documents\Visual Studio 2013\Projects\PrimForms\PrimForms\obj\Debug\PrimForms.csproj.GenerateResource.Cache
+C:\Users\Second\Documents\Visual Studio 2013\Projects\PrimForms\PrimForms\obj\Debug\PrimForms.exe
+C:\Users\Second\Documents\Visual Studio 2013\Projects\PrimForms\PrimForms\obj\Debug\PrimForms.pdb
