@@ -194,12 +194,12 @@ namespace PrimForms
 
         public void bfs()
         {
-            List<MyPoint> list = new List<MyPoint>();
+          /*  List<MyPoint> list = new List<MyPoint>();
             list.Add(vertices[0]);
             while (list.FindAll(c => c.white).Count > 0)
             {
 
-            }
+            }*/
         }
 
         private void buttonBFS_Click(object sender, EventArgs e)
