@@ -11,15 +11,11 @@ namespace PrimForms
     {
         private const int areaWidth = 420;
         private const int areaHeight = 300;
-        private Line line = new Line();
         private List<MyPoint> vertices = new List<MyPoint>();
         private Bitmap bitmapAll = new Bitmap(areaWidth, areaHeight);
         private Bitmap bitmapMST = new Bitmap(areaWidth, areaHeight);
         private List<Edge> MSTList = new List<Edge>();
-        private List<Edge> allEdges = new List<Edge>(); 
-        
-      
-
+        private List<Edge> allEdges = new List<Edge>();
 
         public Form1()
         {
@@ -48,7 +44,7 @@ namespace PrimForms
             pb.Image = bitmap;
         }
 
-        private void DrawPoint(MyPoint p, Bitmap bitmap, PictureBox pb, Color color,int size)
+        private void DrawPoint(MyPoint p, Bitmap bitmap, PictureBox pb, Color color, int size)
         {
             using (var g = Graphics.FromImage(bitmap))
             {
@@ -122,7 +118,7 @@ namespace PrimForms
                 PrimAglorithm.AlgorithmByPrim(vertices.Count, allEdges, MSTList);
                 foreach (var point in vertices)
                 {
-                    DrawPoint(point, bitmapMST, pictureBoxMST,Color.Red);
+                    DrawPoint(point, bitmapMST, pictureBoxMST, Color.Red);
                 }
                 foreach (var edge in MSTList)
                 {
@@ -145,29 +141,23 @@ namespace PrimForms
 
         private void pictureBoxAll_MouseMove(object sender, MouseEventArgs e)
         {
-
         }
 
         private void pictureBoxAll_MouseDown(object sender, MouseEventArgs e)
         {
-
         }
 
         private void pictureBoxAll_MouseUp(object sender, MouseEventArgs e)
         {
-
         }
 
         private void buttonDFS_Click(object sender, EventArgs e)
         {
             Thread t = new Thread(dfs);
             t.Start();
-            pictureBoxAll.Update();
-
         }
 
-
-        public  void dfs()
+        public void dfs()
         {
             Stack<MyPoint> S = new Stack<MyPoint>();
             S.Push(vertices[0]);
@@ -178,7 +168,7 @@ namespace PrimForms
                 {
                     var peek = S.Peek();
                     DrawPoint(peek, bitmapAll, pictureBoxAll, Color.Black);
-                    S.Peek().white=false;
+                    S.Peek().white = false;
                     S.Pop();
                     Thread.Sleep(1000);
 
@@ -198,16 +188,24 @@ namespace PrimForms
                             S.Push(vertices[edge.v1]);
                         }
                     }
-
                 }
             }
         }
 
         public void bfs()
         {
+            List<MyPoint> list = new List<MyPoint>();
+            list.Add(vertices[0]);
+            while (list.FindAll(c => c.white).Count > 0)
+            {
 
+            }
         }
 
-    
+        private void buttonBFS_Click(object sender, EventArgs e)
+        {
+            Thread t = new Thread(bfs);
+            t.Start();
+        }
     }
 }

@@ -180,7 +180,7 @@
             // 
             this.buttonDFS.Location = new System.Drawing.Point(480, 375);
             this.buttonDFS.Name = "buttonDFS";
-            this.buttonDFS.Size = new System.Drawing.Size(134, 51);
+            this.buttonDFS.Size = new System.Drawing.Size(212, 51);
             this.buttonDFS.TabIndex = 13;
             this.buttonDFS.Text = "DFS";
             this.buttonDFS.UseVisualStyleBackColor = true;
@@ -188,12 +188,13 @@
             // 
             // buttonBFS
             // 
-            this.buttonBFS.Location = new System.Drawing.Point(706, 364);
+            this.buttonBFS.Location = new System.Drawing.Point(698, 375);
             this.buttonBFS.Name = "buttonBFS";
-            this.buttonBFS.Size = new System.Drawing.Size(134, 51);
+            this.buttonBFS.Size = new System.Drawing.Size(191, 51);
             this.buttonBFS.TabIndex = 14;
             this.buttonBFS.Text = "BFS";
             this.buttonBFS.UseVisualStyleBackColor = true;
+            this.buttonBFS.Click += new System.EventHandler(this.buttonBFS_Click);
             // 
             // Form1
             // 

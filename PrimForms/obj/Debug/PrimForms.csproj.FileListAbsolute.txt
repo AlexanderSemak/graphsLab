@@ -7,3 +7,12 @@ C:\Users\Second\Documents\Visual Studio 2013\Projects\PrimForms\PrimForms\obj\De
 C:\Users\Second\Documents\Visual Studio 2013\Projects\PrimForms\PrimForms\obj\Debug\PrimForms.csproj.GenerateResource.Cache
 C:\Users\Second\Documents\Visual Studio 2013\Projects\PrimForms\PrimForms\obj\Debug\PrimForms.exe
 C:\Users\Second\Documents\Visual Studio 2013\Projects\PrimForms\PrimForms\obj\Debug\PrimForms.pdb
+D:\ss\graphsLab\PrimForms\bin\Debug\PrimForms.exe.config
+D:\ss\graphsLab\PrimForms\obj\Debug\PrimForms.exe
+D:\ss\graphsLab\PrimForms\obj\Debug\PrimForms.pdb
+D:\ss\graphsLab\PrimForms\bin\Debug\PrimForms.exe
+D:\ss\graphsLab\PrimForms\bin\Debug\PrimForms.pdb
+D:\ss\graphsLab\PrimForms\obj\Debug\PrimForms.csprojResolveAssemblyReference.cache
+D:\ss\graphsLab\PrimForms\obj\Debug\PrimForms.Form1.resources
+D:\ss\graphsLab\PrimForms\obj\Debug\PrimForms.Properties.Resources.resources
+D:\ss\graphsLab\PrimForms\obj\Debug\PrimForms.csproj.GenerateResource.Cache
