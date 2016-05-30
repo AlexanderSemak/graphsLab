@@ -41,11 +41,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.buttonDFS = new System.Windows.Forms.Button();
-            this.buttonBFS = new System.Windows.Forms.Button();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.radioButtonBFS = new System.Windows.Forms.RadioButton();
+            this.radioButtonDFS = new System.Windows.Forms.RadioButton();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMST)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxAll
@@ -56,7 +59,6 @@
             this.pictureBoxAll.TabIndex = 0;
             this.pictureBoxAll.TabStop = false;
             this.pictureBoxAll.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
-
             // 
             // buttonMakeEdge
             // 
@@ -174,33 +176,59 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Кістяк";
             // 
-            // buttonDFS
+            // buttonSearch
             // 
-            this.buttonDFS.Location = new System.Drawing.Point(480, 375);
-            this.buttonDFS.Name = "buttonDFS";
-            this.buttonDFS.Size = new System.Drawing.Size(212, 51);
-            this.buttonDFS.TabIndex = 13;
-            this.buttonDFS.Text = "DFS";
-            this.buttonDFS.UseVisualStyleBackColor = true;
-            this.buttonDFS.Click += new System.EventHandler(this.buttonDFS_Click);
+            this.buttonSearch.Location = new System.Drawing.Point(480, 375);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(129, 51);
+            this.buttonSearch.TabIndex = 13;
+            this.buttonSearch.Text = "GO";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
-            // buttonBFS
+            // radioButtonBFS
             // 
-            this.buttonBFS.Location = new System.Drawing.Point(698, 375);
-            this.buttonBFS.Name = "buttonBFS";
-            this.buttonBFS.Size = new System.Drawing.Size(191, 51);
-            this.buttonBFS.TabIndex = 14;
-            this.buttonBFS.Text = "BFS";
-            this.buttonBFS.UseVisualStyleBackColor = true;
-            this.buttonBFS.Click += new System.EventHandler(this.buttonBFS_Click);
+            this.radioButtonBFS.AutoSize = true;
+            this.radioButtonBFS.Checked = true;
+            this.radioButtonBFS.Location = new System.Drawing.Point(615, 375);
+            this.radioButtonBFS.Name = "radioButtonBFS";
+            this.radioButtonBFS.Size = new System.Drawing.Size(45, 17);
+            this.radioButtonBFS.TabIndex = 15;
+            this.radioButtonBFS.TabStop = true;
+            this.radioButtonBFS.Text = "BFS";
+            this.radioButtonBFS.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonDFS
+            // 
+            this.radioButtonDFS.AutoSize = true;
+            this.radioButtonDFS.Location = new System.Drawing.Point(614, 409);
+            this.radioButtonDFS.Name = "radioButtonDFS";
+            this.radioButtonDFS.Size = new System.Drawing.Size(46, 17);
+            this.radioButtonDFS.TabIndex = 16;
+            this.radioButtonDFS.Text = "DFS";
+            this.radioButtonDFS.UseVisualStyleBackColor = true;
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(670, 381);
+            this.trackBar1.Maximum = 2000;
+            this.trackBar1.Minimum = 50;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(219, 45);
+            this.trackBar1.TabIndex = 17;
+            this.trackBar1.TickFrequency = 200;
+            this.trackBar1.Value = 200;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 495);
-            this.Controls.Add(this.buttonBFS);
-            this.Controls.Add(this.buttonDFS);
+            this.Controls.Add(this.trackBar1);
+            this.Controls.Add(this.radioButtonDFS);
+            this.Controls.Add(this.radioButtonBFS);
+            this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -221,6 +249,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAll)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMST)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,8 +270,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button buttonDFS;
-        private System.Windows.Forms.Button buttonBFS;
+        private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.RadioButton radioButtonBFS;
+        private System.Windows.Forms.RadioButton radioButtonDFS;
+        private System.Windows.Forms.TrackBar trackBar1;
     }
 }
 

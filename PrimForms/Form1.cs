@@ -16,10 +16,11 @@ namespace PrimForms
         private Bitmap bitmapMST = new Bitmap(areaWidth, areaHeight);
         private List<Edge> MSTList = new List<Edge>();
         private List<Edge> allEdges = new List<Edge>();
-
+        private int time=200;
         public Form1()
         {
             InitializeComponent();
+            System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;
         }
 
         private void pictureBox_MouseClick(object sender, MouseEventArgs e)
@@ -52,6 +53,15 @@ namespace PrimForms
                 g.DrawString(p.ToString(), new Font("Arial", 12), new SolidBrush(color), new Point(p.X, p.Y));
             }
             pb.Image = bitmap;
+        }
+
+        private void DrawLine(MyPoint p1, MyPoint p2, Color color)
+        {
+            using (var g = Graphics.FromImage(bitmapAll))
+            {
+                g.DrawLine(new Pen(color), p1.X, p1.Y, p2.X, p2.Y);
+            }
+            pictureBoxAll.Image = bitmapAll;
         }
 
         private void buttonMakeEdge_Click(object sender, EventArgs e)
@@ -139,16 +149,9 @@ namespace PrimForms
             }
         }
 
-        
-
-        private void buttonDFS_Click(object sender, EventArgs e)
-        {
-            Thread t = new Thread(dfs);
-            t.Start();
-        }
-
         public void dfs()
         {
+            MyPoint first = vertices[0];
             Stack<MyPoint> S = new Stack<MyPoint>();
             S.Push(vertices[0]);
 
@@ -156,11 +159,12 @@ namespace PrimForms
             {
                 if (S.Peek().white)
                 {
+                    first = S.Peek();
                     var peek = S.Peek();
                     DrawPoint(peek, bitmapAll, pictureBoxAll, Color.Black);
                     S.Peek().white = false;
                     S.Pop();
-                    Thread.Sleep(1000);
+                    Thread.Sleep(time);
                     var listSuppv1 = allEdges.FindAll(ed => ed.v1 == peek.Number).ToList();
                     var listSuppv2 = allEdges.FindAll(ed => ed.v2 == peek.Number).ToList();
                     foreach (var edge in listSuppv1)
@@ -168,24 +172,38 @@ namespace PrimForms
                         if (vertices[edge.v2].white)
                         {
                             if (!S.Contains(vertices[edge.v2]))
-                            S.Push(vertices[edge.v2]);
+                            {
+                                S.Push(vertices[edge.v2]);
+                            }
                         }
+                        else
+                            DrawLine(vertices[edge.v2], peek, Color.Black);
+
                     }
                     foreach (var edge in listSuppv2)
                     {
                         if (vertices[edge.v1].white)
                         {
                             if (!S.Contains(vertices[edge.v1]))
-                            S.Push(vertices[edge.v1]);
+                            {
+                                S.Push(vertices[edge.v1]);
+
+                            }
                         }
+                        else
+                            DrawLine(vertices[edge.v1], peek, Color.Black);
                     }
                 }
-               
+
             }
             foreach (var item in vertices)
             {
                 item.white = true;
             }
+            if (InvokeRequired)
+                pictureBoxAll.Invoke(new Action(() => pictureBoxAll.Update()));
+            else
+                pictureBoxAll.Update();
         }
 
         public void bfs()
@@ -201,7 +219,7 @@ namespace PrimForms
                     DrawPoint(peek, bitmapAll, pictureBoxAll, Color.Lime);
                     Q.Peek().white = false;
                     Q.Dequeue();
-                    Thread.Sleep(1000);
+                    Thread.Sleep(time);
                     var listSuppv1 = allEdges.FindAll(ed => ed.v1 == peek.Number).ToList();
                     var listSuppv2 = allEdges.FindAll(ed => ed.v2 == peek.Number).ToList();
                     foreach (var edge in listSuppv1)
@@ -209,16 +227,25 @@ namespace PrimForms
                         if (vertices[edge.v2].white)
                         {
                             if (!Q.Contains(vertices[edge.v2]))
+                            {
                                 Q.Enqueue(vertices[edge.v2]);
+                                                            }
                         }
+                        else
+                            DrawLine(vertices[edge.v2], peek, Color.Lime);
+
                     }
                     foreach (var edge in listSuppv2)
                     {
                         if (vertices[edge.v1].white)
                         {
                             if (!Q.Contains(vertices[edge.v1]))
-                                Q.Enqueue(vertices[edge.v1]);
+                            {
+                                Q.Enqueue(vertices[edge.v1]);                               
+                            }
                         }
+                        else
+                            DrawLine(vertices[edge.v1], peek, Color.Lime);
                     }
                 }
             }
@@ -228,10 +255,21 @@ namespace PrimForms
             }
         }
 
-        private void buttonBFS_Click(object sender, EventArgs e)
+        private void buttonSearch_Click(object sender, EventArgs e)
         {
             Thread t = new Thread(bfs);
+            if (radioButtonDFS.Checked)
+                t = new Thread(dfs);
             t.Start();
+
         }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            time = trackBar1.Value;
+        }
+
+
+
     }
 }
