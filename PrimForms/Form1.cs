@@ -139,17 +139,7 @@ namespace PrimForms
             }
         }
 
-        private void pictureBoxAll_MouseMove(object sender, MouseEventArgs e)
-        {
-        }
-
-        private void pictureBoxAll_MouseDown(object sender, MouseEventArgs e)
-        {
-        }
-
-        private void pictureBoxAll_MouseUp(object sender, MouseEventArgs e)
-        {
-        }
+        
 
         private void buttonDFS_Click(object sender, EventArgs e)
         {
@@ -171,13 +161,13 @@ namespace PrimForms
                     S.Peek().white = false;
                     S.Pop();
                     Thread.Sleep(1000);
-
                     var listSuppv1 = allEdges.FindAll(ed => ed.v1 == peek.Number).ToList();
                     var listSuppv2 = allEdges.FindAll(ed => ed.v2 == peek.Number).ToList();
                     foreach (var edge in listSuppv1)
                     {
                         if (vertices[edge.v2].white)
                         {
+                            if (!S.Contains(vertices[edge.v2]))
                             S.Push(vertices[edge.v2]);
                         }
                     }
@@ -185,21 +175,57 @@ namespace PrimForms
                     {
                         if (vertices[edge.v1].white)
                         {
+                            if (!S.Contains(vertices[edge.v1]))
                             S.Push(vertices[edge.v1]);
                         }
                     }
                 }
+               
+            }
+            foreach (var item in vertices)
+            {
+                item.white = true;
             }
         }
 
         public void bfs()
         {
-          /*  List<MyPoint> list = new List<MyPoint>();
-            list.Add(vertices[0]);
-            while (list.FindAll(c => c.white).Count > 0)
-            {
+            Queue<MyPoint> Q = new Queue<MyPoint>();
+            Q.Enqueue(vertices[0]);
 
-            }*/
+            while (Q.Where(r => r.white).ToList().Count != 0)
+            {
+                if (Q.Peek().white)
+                {
+                    var peek = Q.Peek();
+                    DrawPoint(peek, bitmapAll, pictureBoxAll, Color.Lime);
+                    Q.Peek().white = false;
+                    Q.Dequeue();
+                    Thread.Sleep(1000);
+                    var listSuppv1 = allEdges.FindAll(ed => ed.v1 == peek.Number).ToList();
+                    var listSuppv2 = allEdges.FindAll(ed => ed.v2 == peek.Number).ToList();
+                    foreach (var edge in listSuppv1)
+                    {
+                        if (vertices[edge.v2].white)
+                        {
+                            if (!Q.Contains(vertices[edge.v2]))
+                                Q.Enqueue(vertices[edge.v2]);
+                        }
+                    }
+                    foreach (var edge in listSuppv2)
+                    {
+                        if (vertices[edge.v1].white)
+                        {
+                            if (!Q.Contains(vertices[edge.v1]))
+                                Q.Enqueue(vertices[edge.v1]);
+                        }
+                    }
+                }
+            }
+            foreach (var item in vertices)
+            {
+                item.white = true;
+            }
         }
 
         private void buttonBFS_Click(object sender, EventArgs e)

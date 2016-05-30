@@ -56,9 +56,7 @@
             this.pictureBoxAll.TabIndex = 0;
             this.pictureBoxAll.TabStop = false;
             this.pictureBoxAll.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
-            this.pictureBoxAll.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBoxAll_MouseDown);
-            this.pictureBoxAll.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxAll_MouseMove);
-            this.pictureBoxAll.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBoxAll_MouseUp);
+
             // 
             // buttonMakeEdge
             // 
